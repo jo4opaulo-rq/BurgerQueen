@@ -1,0 +1,3 @@
+/home/joaopaulo/Games/lp1/CMakeFiles/lanchonete.dir
+/home/joaopaulo/Games/lp1/CMakeFiles/edit_cache.dir
+/home/joaopaulo/Games/lp1/CMakeFiles/rebuild_cache.dir

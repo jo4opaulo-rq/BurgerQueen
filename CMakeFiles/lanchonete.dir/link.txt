@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/lanchonete.dir/src/main.cpp.o CMakeFiles/lanchonete.dir/src/gerente.cpp.o -o lanchonete 
