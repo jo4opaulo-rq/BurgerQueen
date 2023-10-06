@@ -6,4 +6,5 @@ include_directories( include )
 
 add_executable( lanchonete
                 src/main.cpp
-                src/gerente.cpp )
+                src/gerente.cpp
+                src/cliente.cpp )

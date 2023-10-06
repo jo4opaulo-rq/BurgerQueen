@@ -1,12 +1,16 @@
 #include <iostream>
 #include <map>
 #include "gerente.hpp"
+#include "cliente.hpp"
 #include <stdlib.h> 
 
 using namespace std;
 
 int main(){
     int escolha;
+    lerArquivoSanduiche();
+    lerArquivoSucos();
+    
     
     while (escolha != 0)
     {
@@ -27,8 +31,9 @@ int main(){
         
         
         case 1:
-            cout << "1\n";
-            
+           
+            teste1();
+            //listarCardapioSuco();
             break;
         
         case 2:
