@@ -61,7 +61,7 @@ void lerArquivoSanduiche(){
   }
   arquivo.close();
   if(linha.empty()){
-    cout << "Sem sanduiches cadastrado" <<endl;
+    cout << "Sem sanduiches cadastrados" <<endl;
   }else{
     for(int i = 0; i < linha.size(); i+=2){ 
      cardapioSanduiche[linha[i]]= stof(linha[i+1]);
@@ -120,7 +120,17 @@ void atualizarCardapioSanduiche(){
 }
 
 
-void excluirDoCardapioSuco(string produto){
+void excluirDoCardapioSanduiche(string produto){
+    if(!cardapioSanduiche.empty()){     // verifica se o map está vazio
+      cardapioSanduiche.erase(produto);
+      atualizarCardapioSanduiche(); // Chama a função para atualizar o arquivo
+      cout << "Sanduiche  excluido" << endl;
+    } 
+    else{
+       cout << "Sanduiche não encontrado!!!" << endl;
+    }  
+  
+}void excluirDoCardapioSuco(string produto){
     if(!cardapioSuco.empty()){     // verifica se o map está vazio
       cardapioSuco.erase(produto);
       atualizarCardapioSuco(); // Chama a função para atualizar o arquivo
@@ -138,6 +148,7 @@ void gerente(){
   float precoSanduiche, precoSuco;
   
   lerArquivoSucos();
+  lerArquivoSanduiche();
   
 
   while (escolha != 0){
@@ -148,6 +159,7 @@ void gerente(){
     cout << "\t*  4 - Cadastrar suco            *\n";
     cout << "\t*  5 - Atualizar preço sanduiche *\n";
     cout << "\t*  6 - Atualizar preço suco      *\n";
+    cout << "\t*  7 - Excluir sanduiche         *\n";
     cout << "\t*  8 - Excluir suco              *\n";
     cout << "\t*  0 - Sair                      *\n";
     cout << "\t**********************************\n";
@@ -155,7 +167,7 @@ void gerente(){
     cin >> escolha;
     
     if (escolha == 1){
-      lerArquivoSanduiche();
+      // lerArquivoSanduiche();
       listarCardapioSanduiche();
     }
     
@@ -164,8 +176,11 @@ void gerente(){
     }
 
     if (escolha == 3){
+      cin.ignore();
       cout << "Sanduiche: ";
-      cin >> sanduiche;
+      //cin >> sanduiche;
+      getline(cin, sanduiche);
+     
       cout << "Preço: ";
       cin >> precoSanduiche;
       cadastrarSanduiche(sanduiche, precoSanduiche);
@@ -173,8 +188,10 @@ void gerente(){
     }
 
     if (escolha == 4){
+      cin.ignore();
       cout << "Suco: ";
-      cin >> suco;
+      //cin >> suco;
+      getline(cin, suco);
       cout << "Preço: ";
       cin >> precoSuco;
       cadastrarSuco(suco, precoSuco);
@@ -200,6 +217,14 @@ void gerente(){
       cin >> novoPreco;
       alterarPrecoSuco(suco, novoPreco);
       atualizarCardapioSuco();
+    }
+
+    if (escolha == 7)
+    {
+      string excluirSanduiche;
+      cout << "Qual sanduiche deseja excluir: ";
+      cin >> excluirSanduiche;
+      excluirDoCardapioSanduiche(excluirSanduiche);
     }
 
     if (escolha == 8)

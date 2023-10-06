@@ -23,4 +23,6 @@ void atualizarCardapioSuco();
 
 void excluirDoCardapioSuco(std::string produto);
 
+void excluirDoCardapioSanduiche(std::string produto);
+
 #endif
