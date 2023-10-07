@@ -114,9 +114,6 @@ void comprar(int sanduicheOusuco){
         carrinhoCompras.insert(*cardapioSucoCliente.find(produto));  
     }
     
-          
-    
-
     fstream arquivo;
     arquivo.open("cardapio/carrinho.txt", ios::out);
     for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
@@ -131,11 +128,9 @@ void retornarCompras(){
     string temp;
   while(getline(arquivo, temp)){
     linha.push_back(temp);
-  }
-  arquivo.close();
-    
+  }    
     for(int i = 0; i < linha.size(); i+=2){ 
-     carrinhoCompras[linha[i]]= stof(linha[i+1]);
+     linha[i]= stof(linha[i+1]);
     }
   }
 
@@ -174,8 +169,8 @@ void cliente(){
         case 3:
             int escolhaProduto ;            
             cout << "O que deseja comprar 1 - sanduiche \n2 - suco ";
-                cin >> escolhaProduto;
-                comprar(escolhaProduto);
+            cin >> escolhaProduto;
+            comprar(escolhaProduto);
             
             break;
             
