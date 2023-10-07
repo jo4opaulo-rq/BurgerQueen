@@ -94,7 +94,7 @@ void listarCardapioSucoCliente(){
 //     cout << "--------------------|---------------------" << endl;
 // }
 
-void comprar(int sanduicheOusuco){
+void adiconarNoCarrinho(int sanduicheOusuco){
     cin.ignore();
     string produto;
     
@@ -121,20 +121,38 @@ void comprar(int sanduicheOusuco){
         arquivo << it->second << endl;
     } 
 }
-void retornarCompras(){
-    vector<string> linha;
-    fstream arquivo;
-    arquivo.open("cardapio/carrinho.txt", ios::in);
-    string temp;
-  while(getline(arquivo, temp)){
-    linha.push_back(temp);
-  }    
-    for(int i = 0; i < linha.size(); i+=2){ 
-     linha[i]= stof(linha[i+1]);
-    }
-  }
+void retornarCarrinho(){ // adicionar layout !!!!!!!!!!!!!!!!!!!!
+  map<string, float>::iterator it;
+  for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
+    cout  << it->first << endl;
+    cout << it->second << endl;
+    } 
+}
 
+void retornarValorCarrinho(){
+  map<string, float>::iterator it;
+  float totalcompra;
 
+  for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
+    totalcompra += it->second;
+    } 
+    cout << "Total: " << totalcompra << endl;
+}
+void excluirPedido(){
+  cin.ignore();
+  string pedido;
+  cout << "Qual pedido deseja remover?: ";
+  getline(cin, pedido);
+  if(!carrinhoCompras.empty()){     // verifica se o map está vazio
+    carrinhoCompras.erase(pedido);
+    atualizarCardapioSuco(); // Chama a função para atualizar o arquivo
+    cout << "Pedido  excluido" << endl;
+  } 
+  else{
+      cout << "Pedido não encontrado!!!" << endl;
+  }  
+  
+}
 
 
 void cliente(){
@@ -142,14 +160,14 @@ void cliente(){
     lerArquivoSanduicheCliente();
     lerArquivoSucoCliente();
 
-
-
     while (escolha != 0){
         cout << "\t**********************************\n";
         cout << "\t*  1 - Listar sanduiches         *\n";
         cout << "\t*  2 - Listar sucos              *\n";
         cout << "\t*  3 - Comprar                   *\n";
-        cout << "\t*  4 - Total da compras          *\n";
+        cout << "\t*  4 - Total das compras         *\n";
+        cout << "\t*  5 - Ver carrinho              *\n";
+        cout << "\t*  6 - Excluir pedido            *\n";
         cout << "\t*  0 - Sair                      *\n";
         cout << "\t**********************************\n";
         cout << "Digite sua escolha: ";
@@ -168,12 +186,24 @@ void cliente(){
             break;
         case 3:
             int escolhaProduto ;            
-            cout << "O que deseja comprar 1 - sanduiche \n2 - suco ";
+            cout << "O que deseja comprar:\n1 - sanduiche   2 - suco\n: ";
             cin >> escolhaProduto;
-            comprar(escolhaProduto);
+            adiconarNoCarrinho(escolhaProduto);
             
             break;
-            
+        case 4:
+            retornarValorCarrinho();
+            break;
+        case 5:
+            retornarCarrinho();
+            break;
+
+        // case 6:
+        //     cin.ignore();
+        //     string excluir_pedido;
+        //     getline(cin, excluir_pedido);
+        case 6:
+          
         
         default:
             break;

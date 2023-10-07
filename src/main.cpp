@@ -32,10 +32,6 @@ int main(){
         case 1:
             cliente();
             break;
-        case 3:
-            retornarCompras();
-
-            break;
         case 2:
             gerente();
             break;

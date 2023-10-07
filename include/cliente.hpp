@@ -7,8 +7,9 @@ void lerArquivoSucoCliente();
 void listarCardapioSucoCliente();
 
 //void listarProdutos();
-void comprar(int sanduicheOusuco);
+void adiconarNoCarrinho(int sanduicheOusuco);
 
-void retornarCompras();
+void retornarCarrinho();
+void retornarValorCarrinho();
 void cliente();
 #endif
