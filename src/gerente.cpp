@@ -19,16 +19,29 @@ void cadastrarSuco(string produto, float valor){
 
 void listarCardapioSanduiche(){
     map<string, float>::iterator it;
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|             CARDÁPIO SANDUICHES              |"<< endl;
+    cout << "|----------------------------------------------|" << endl;
+
     for (it = cardapioSanduiche.begin(); it != cardapioSanduiche.end(); ++it) {
-    cout << "Produto: "<< it->first << "\nValor: " << it->second << '\n';
+    cout << "   \t"<< it->first << " preço: R$" << it->second << '\n';
+    cout << "|----------------------------------------------|" << endl;
+
   }
 }
 
 void listarCardapioSuco(){
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|             CARDÁPIO SUCOS                   |"<< endl;
+    cout << "|----------------------------------------------|" << endl;
+
     map<string, float>::iterator it;
     for (it = cardapioSuco.begin(); it != cardapioSuco.end(); ++it) {
-    cout << "Produto: "<< it->first << "\nValor: " << it->second << '\n';
+      cout << "       \t"<< it->first << " preço: R$" << it->second << '\n';
+  
   }
+    cout << "|----------------------------------------------|" << endl;
+
 }
 
 void salvarCardapioSanduiche(){
@@ -221,41 +234,24 @@ void gerente(){
 
     if (escolha == 7)
     {
+      cin.ignore();
       string excluirSanduiche;
       cout << "Qual sanduiche deseja excluir: ";
-      cin >> excluirSanduiche;
+      //cin >> excluirSanduiche;
+      getline(cin, excluirSanduiche);
       excluirDoCardapioSanduiche(excluirSanduiche);
     }
 
     if (escolha == 8)
     {
       string excluirSuco;
+      cin.ignore();
       cout << "Qual bebida deseja excluir: ";
-      cin >> excluirSuco;
+      //cin >> excluirSuco;
+      getline(cin, excluirSuco);
       excluirDoCardapioSuco(excluirSuco);
+      
     }
-    
-    
-    
-    
-    
-    // case 3:
-    //   cout << "Sanduiche: ";
-    //   cin >> sanduiche;
-    //   cout << "Preço: ";
-    //   cin >> precoSanduiche;
-    //   cadastrarSanduiche(sanduiche, precoSanduiche);
-    //   salvarCardapioSanduiche();
-    //   break;
-
-    // case 4:
-    //   cout << "Suco: ";
-    //   cin >> suco;
-    //   cout << "Preço: ";
-    //   cin >> precoSuco;
-    //   cadastrarSuco(suco, precoSuco);
-    //   salvarCardapioSuco();
-
   }
 }
 

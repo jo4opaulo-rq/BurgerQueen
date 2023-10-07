@@ -10,6 +10,8 @@ int main(){
     int escolha;
     lerArquivoSanduiche();
     lerArquivoSucos();
+    string produto;
+
     
     
     while (escolha != 0)
@@ -26,19 +28,21 @@ int main(){
         switch (escolha)
         {
         case 0:
-            cout << "Volte sempre\n";
             break;
-        
-        
         case 1:
-           
-            teste1();
-            //listarCardapioSuco();
+            listarProdutos();
+            // cliente();
+            cin.ignore();
+            cout << "Escolha ";
+            getline(cin, produto);
+    
+            comprar(produto);
+        case 3:
+            retornarCompras();
+
             break;
-        
         case 2:
             gerente();
-            
             break;
         default:
             cout<< "Opção inválida\n";
