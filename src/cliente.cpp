@@ -94,21 +94,44 @@ void listarProdutos(){
     cout << "--------------------|---------------------" << endl;
 }
 
-void comprar(string produto){
+void comprar(int sanduicheOusuco){
+    cin.ignore();
+    string produto;
+    cout << "Escolha ";
+    getline(cin, produto);
     lerArquivoSanduicheCliente();
     lerArquivoSucoCliente();
     map<string, float>::iterator it;
-    carrinhoCompras.insert(*cardapioSucoCliente.find(produto));
-    //carrinhoCompras.insert(*cardapioSanduicheCliente.find(produto));
-    retornarCompras();
+    if (sanduicheOusuco == 1){
+        carrinhoCompras.insert(*cardapioSanduicheCliente.find(produto));
+
+    }else{
+        carrinhoCompras.insert(*cardapioSucoCliente.find(produto));    
+    }
+
+    fstream arquivo;
+    arquivo.open("cardapio/carrinho.txt", ios::out);
+    for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
+        arquivo << it->first << endl;
+        arquivo << it->second << endl;
+    } 
 }
 void retornarCompras(){
-    map<string, float>::iterator it;
-
-    for (auto i = carrinhoCompras.begin(); i != carrinhoCompras.end(); i++) {
-            cout << "   \t"<< it->first << "                R$" << it->second << '\n';
-        }
+    vector<string> linha;
+    fstream arquivo;
+    arquivo.open("cardapio/carrinho.txt", ios::in);
+    string temp;
+  while(getline(arquivo, temp)){
+    linha.push_back(temp);
   }
+  arquivo.close();
+    
+    for(int i = 0; i < linha.size(); i+=2){ 
+     carrinhoCompras[linha[i]]= stof(linha[i+1]);
+    }
+  }
+
+
 
 
 void cliente(){
@@ -122,7 +145,8 @@ void cliente(){
         cout << "\t**********************************\n";
         cout << "\t*  1 - Listar sanduiches         *\n";
         cout << "\t*  2 - Listar sucos              *\n";
-        cout << "\t*  3 -                           *\n";
+        cout << "\t*  3 - Comprar                   *\n";
+        cout << "\t*  4 - Total da compras          *\n";
         cout << "\t*  0 - Sair                      *\n";
         cout << "\t**********************************\n";
         cout << "Digite sua escolha: ";
@@ -139,6 +163,16 @@ void cliente(){
         case 2:
             listarCardapioSucoCliente();
             break;
+        case 3:
+            int escolhaProduto ;
+            listarProdutos();
+            
+                cout << "O que deseja comprar 1 - sanduiche: ";
+                cin >> escolhaProduto;
+                comprar(escolhaProduto);
+            
+            break;
+            
         
         default:
             break;

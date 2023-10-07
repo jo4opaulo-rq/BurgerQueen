@@ -30,13 +30,8 @@ int main(){
         case 0:
             break;
         case 1:
-            listarProdutos();
-            // cliente();
-            cin.ignore();
-            cout << "Escolha ";
-            getline(cin, produto);
-    
-            comprar(produto);
+            cliente();
+            break;
         case 3:
             retornarCompras();
 

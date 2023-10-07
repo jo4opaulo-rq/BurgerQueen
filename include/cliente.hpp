@@ -7,7 +7,7 @@ void lerArquivoSucoCliente();
 void listarCardapioSucoCliente();
 
 void listarProdutos();
-void comprar(std::string produto);
+void comprar(int sanduicheOusuco);
 
 void retornarCompras();
 void cliente();
