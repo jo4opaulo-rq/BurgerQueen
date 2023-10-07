@@ -6,7 +6,7 @@ void lerArquivoSanduicheCliente();
 void lerArquivoSucoCliente();
 void listarCardapioSucoCliente();
 
-void listarProdutos();
+//void listarProdutos();
 void comprar(int sanduicheOusuco);
 
 void retornarCompras();

@@ -77,37 +77,45 @@ void listarCardapioSucoCliente(){
     }
 }
 
-void listarProdutos(){
-    lerArquivoSanduicheCliente();
-    lerArquivoSucoCliente();
-    cout << "--------------------|---------------------" << endl; 
-    cout << "\tProduto              Preço" << endl;
-    cout << "--------------------|---------------------" << endl;
-    map<string, float>::iterator it;
-     for (it = cardapioSanduicheCliente.begin(); it != cardapioSanduicheCliente.end(); ++it) {
-        cout << "   \t"<< it->first << "           R$" << it->second << '\n';
-    }
+// void listarProdutos(){
+//     lerArquivoSanduicheCliente();
+//     lerArquivoSucoCliente();
+//     cout << "--------------------|---------------------" << endl; 
+//     cout << "\tProduto              Preço" << endl;
+//     cout << "--------------------|---------------------" << endl;
+//     map<string, float>::iterator it;
+//      for (it = cardapioSanduicheCliente.begin(); it != cardapioSanduicheCliente.end(); ++it) {
+//         cout << "   \t"<< it->first << "           R$" << it->second << '\n';
+//     }
     
-    for (it = cardapioSucoCliente.begin(); it != cardapioSucoCliente.end(); ++it) {
-    cout << "   \t"<< it->first << "                R$" << it->second << '\n';
-    }
-    cout << "--------------------|---------------------" << endl;
-}
+//     for (it = cardapioSucoCliente.begin(); it != cardapioSucoCliente.end(); ++it) {
+//     cout << "   \t"<< it->first << "                R$" << it->second << '\n';
+//     }
+//     cout << "--------------------|---------------------" << endl;
+// }
 
 void comprar(int sanduicheOusuco){
     cin.ignore();
     string produto;
-    cout << "Escolha ";
-    getline(cin, produto);
+    
     lerArquivoSanduicheCliente();
     lerArquivoSucoCliente();
     map<string, float>::iterator it;
     if (sanduicheOusuco == 1){
+        listarCardapioSanduicheCliente();
+        cout << "Escolha seu sanduíche:  ";
+        getline(cin, produto);
         carrinhoCompras.insert(*cardapioSanduicheCliente.find(produto));
 
-    }else{
-        carrinhoCompras.insert(*cardapioSucoCliente.find(produto));    
+    }if (sanduicheOusuco == 2){   
+        listarCardapioSucoCliente();
+        cout << "Escolha seu suco:  ";
+        getline(cin, produto);
+        carrinhoCompras.insert(*cardapioSucoCliente.find(produto));  
     }
+    
+          
+    
 
     fstream arquivo;
     arquivo.open("cardapio/carrinho.txt", ios::out);
@@ -164,10 +172,8 @@ void cliente(){
             listarCardapioSucoCliente();
             break;
         case 3:
-            int escolhaProduto ;
-            listarProdutos();
-            
-                cout << "O que deseja comprar 1 - sanduiche: ";
+            int escolhaProduto ;            
+            cout << "O que deseja comprar 1 - sanduiche \n2 - suco ";
                 cin >> escolhaProduto;
                 comprar(escolhaProduto);
             
