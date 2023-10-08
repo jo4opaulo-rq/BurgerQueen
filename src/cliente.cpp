@@ -125,7 +125,7 @@ void retornarCarrinho(){ // adicionar layout !!!!!!!!!!!!!!!!!!!!
   map<string, float>::iterator it;
   // 🛒
     cout << "|----------------------------------------------|" << endl;
-    cout << "|           🛒   SEUS PEDIDOS                  |"<< endl;
+    cout << "|           \U0001f6d2   SEUS PEDIDOS                  |"<< endl;
     cout << "|----------------------------------------------|" << endl;
   for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
     cout  <<"      \t" << it->first <<  "R$:"  << it->second << endl;
