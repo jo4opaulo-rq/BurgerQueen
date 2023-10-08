@@ -1,2 +1,6 @@
+x-burger convencional
+9.5
+x-burger de frango
+13
 x-calabresa
-8.5
+9.5

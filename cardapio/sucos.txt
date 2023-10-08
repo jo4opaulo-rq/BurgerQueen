@@ -1,4 +1,6 @@
 Goiaba
-2.5
+4
 Morango
 5
+Uva com leite
+7.5

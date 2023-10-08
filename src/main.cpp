@@ -2,11 +2,12 @@
 #include <map>
 #include "gerente.hpp"
 #include "cliente.hpp"
-#include <stdlib.h> 
+#include <stdlib.h>
 
 using namespace std;
 
-int main(){
+int main()
+{
     int escolha;
     lerArquivoSanduiche();
     lerArquivoSucos();
@@ -14,8 +15,6 @@ int main(){
     string usuario;
     string senha;
 
-    
-    
     while (escolha != 0)
     {
         cout << "*******************\n";
@@ -25,7 +24,6 @@ int main(){
         cout << "*******************\n";
         cout << "Digite sua escolha: ";
         cin >> escolha;
-        
 
         switch (escolha)
         {
@@ -38,19 +36,21 @@ int main(){
             cin.ignore();
             cout << "Degite seu usuário: ";
             getline(cin, usuario);
-            cout << "Degite seu usuário: ";
+            cout << "Degite seu senha: ";
             getline(cin, senha);
-            if(usuario == "admin" && senha == "admin"){
+            if (usuario == "admin" && senha == "admin")
+            {
                 gerente();
             }
-            else{
+            else
+            {
                 cout << "\nUsuário ou senha incorreta" << endl;
             }
             break;
         default:
-            cout<< "Opção inválida\n";
+            cout << "Opção inválida\n";
             break;
         }
+        break;
     }
-
 }
