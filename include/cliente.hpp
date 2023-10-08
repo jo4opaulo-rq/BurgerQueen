@@ -12,4 +12,5 @@ void adiconarNoCarrinho(int sanduicheOusuco);
 void retornarCarrinho();
 void retornarValorCarrinho();
 void cliente();
+void excluirPedido();
 #endif

@@ -123,10 +123,16 @@ void adiconarNoCarrinho(int sanduicheOusuco){
 }
 void retornarCarrinho(){ // adicionar layout !!!!!!!!!!!!!!!!!!!!
   map<string, float>::iterator it;
+  // 🛒
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|           🛒   SEUS PEDIDOS                  |"<< endl;
+    cout << "|----------------------------------------------|" << endl;
   for(it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){ 
-    cout  << it->first << endl;
-    cout << it->second << endl;
-    } 
+    cout  <<"      \t" << it->first <<  "R$:"  << it->second << endl;
+    }
+    if(!carrinhoCompras.empty()){
+        cout << "|----------------------------------------------|" << endl;
+    }
 }
 
 void retornarValorCarrinho(){
@@ -203,22 +209,11 @@ void cliente(){
         //     string excluir_pedido;
         //     getline(cin, excluir_pedido);
         case 6:
-          
+            excluirPedido();
+            break;
         
         default:
             break;
         }
-
-
-        // cout << "Digite sua escolha: ";
-        // cin >> escolha;
-        // if (escolha== 1)
-        // {
-        //         lerArquivoSanduicheCliente();
-
-        //     listarCardapioSanduicheCliente();
-        // }
-        
-    }
-    
+    }   
 }
