@@ -143,24 +143,28 @@ void alterarPrecoSanduiche(string produto, float preco)
   }
 }
 
-void alterarPrecoSuco(string produto, float preco)
+void alterarPrecoSuco(string produto, float preco)  // não está funcionando corretamente
+                                                    // falta verificar se o suco existe
 {
-  map<string, float>::iterator it;
-  for (it = cardapioSuco.begin(); it != cardapioSuco.end(); ++it)
-  {
-    if (it->first == produto)
-    {
-      cardapioSuco[produto] = preco;
-    }
-      // if (cardapioSuco[it->first] != produto)
-      // {
-      //   cout << "\t Esse suco não está no cardápio\n";
-      // }
-    else{
-      cout << "";
-    }
+  cardapioSuco[produto] = preco;
+  //map<string, float>::iterator it;
+  // for (it = cardapioSuco.begin(); it != cardapioSuco.end(); ++it)
+  // {
+  //   if (it->first != produto)
+  //   {
+  //     cout << "t";
+
+  //   }
+  //       // if (cardapioSuco[it->first] != produto)
+  //       // {
+  //       //   cout << "\t Esse suco não está no cardápio\n";
+  //       // }
+  //   else{
+  //     cardapioSuco[produto] = preco;
+  //   }
     
-  }
+  // }
+  
 }
 
 void atualizarCardapioSuco()
@@ -283,7 +287,7 @@ void gerente()
     {
       cin.ignore();
       float novoPrecoSanduiche;
-      cout << "Informe o produto para atualizar o valor: ";
+      cout << "Qual sanduíche deseja alterar o preço: ";
         //cin >> sanduiche;
       getline(cin, sanduiche);
       cout << "Novo valor: ";
@@ -296,14 +300,13 @@ void gerente()
     {
       cin.ignore();
       float novoPreco;
-      cout << "Informe o produto para atualizar o valor: ";
+      cout << "Qual suco deseja alterar o preço: ";
         //cin >> suco;
       getline(cin, suco);
 
       cout << "Novo valor: ";
       cin >> novoPreco;
       alterarPrecoSuco(suco, novoPreco);
-      atualizarCardapioSuco();
     }
 
     if (escolha == 7)
@@ -320,7 +323,7 @@ void gerente()
     {
       string excluirSuco;
       cin.ignore();
-      cout << "Qual bebida deseja excluir: ";
+      cout << "Qual suco deseja excluir: ";
       // cin >> excluirSuco;
       getline(cin, excluirSuco);
       excluirDoCardapioSuco(excluirSuco);
