@@ -133,10 +133,12 @@ void alterarPrecoSanduiche(string produto, float preco)
     if (it->first == produto)
     {
       cardapioSanduiche[produto] = preco;
+      cout << "Valor atualizado" << endl;
     }
     else
     {
-      cout << "\t Esse sanduiche não está no cardápio\n";
+        //cout << "\t Esse sanduiche não está no cardápio\n";
+      cout << "";
     }
   }
 }
@@ -150,10 +152,14 @@ void alterarPrecoSuco(string produto, float preco)
     {
       cardapioSuco[produto] = preco;
     }
-    else
-    {
-      cout << "\t Esse suco não está no cardápio\n";
+      // if (cardapioSuco[it->first] != produto)
+      // {
+      //   cout << "\t Esse suco não está no cardápio\n";
+      // }
+    else{
+      cout << "";
     }
+    
   }
 }
 
@@ -275,9 +281,11 @@ void gerente()
 
     if (escolha == 5)
     {
+      cin.ignore();
       float novoPrecoSanduiche;
       cout << "Informe o produto para atualizar o valor: ";
-      cin >> sanduiche;
+        //cin >> sanduiche;
+      getline(cin, sanduiche);
       cout << "Novo valor: ";
       cin >> novoPrecoSanduiche;
       alterarPrecoSanduiche(sanduiche, novoPrecoSanduiche);
@@ -286,9 +294,12 @@ void gerente()
 
     if (escolha == 6)
     {
+      cin.ignore();
       float novoPreco;
       cout << "Informe o produto para atualizar o valor: ";
-      cin >> suco;
+        //cin >> suco;
+      getline(cin, suco);
+
       cout << "Novo valor: ";
       cin >> novoPreco;
       alterarPrecoSuco(suco, novoPreco);
