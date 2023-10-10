@@ -12,6 +12,9 @@ map<string, float> cardapioSucoCliente;
 map<string, float> carrinhoCompras;
 
 void retornarCompras();
+
+void retornarValorCarrinho();
+
 void lerArquivoSanduicheCliente()
 {
   vector<string> linha;
@@ -42,14 +45,13 @@ void listarCardapioSanduicheCliente()
   for (it = cardapioSanduicheCliente.begin(); it != cardapioSanduicheCliente.end(); ++it)
   {
     cout << "   \t" << it->first << " preço: R$" << it->second << '\n';
-    cout << "|----------------------------------------------|" << endl;
   }
-
   if (cardapioSanduicheCliente.empty())
   {
     cout << "|\t   Não foram nenhum sanduíche.         |" << endl;
-    cout << "|----------------------------------------------|" << endl;
   }
+  cout << "|----------------------------------------------|" << endl;
+
 }
 
 void lerArquivoSucoCliente()
@@ -139,7 +141,7 @@ void adiconarNoCarrinho(int sanduicheOusuco)
   }
 }
 void retornarCarrinho()
-{ // adicionar layout !!!!!!!!!!!!!!!!!!!!
+{ 
   cout.precision(2);
   cout << fixed;
   map<string, float>::iterator it;
@@ -153,13 +155,16 @@ void retornarCarrinho()
   }
   if (!carrinhoCompras.empty())
   {
-    cout << "|----------------------------------------------|" << endl;
+    cout << "                                 ";
+    retornarValorCarrinho();
+    cout << endl;
   }
   if (carrinhoCompras.empty())
   {
     cout << "|\t     Seu carrinho está vazio.          |" << endl;
-    cout << "|----------------------------------------------|" << endl;
   }
+  cout << "|----------------------------------------------|" << endl;
+
 }
 
 void retornarValorCarrinho()
@@ -168,21 +173,32 @@ void retornarValorCarrinho()
   cout << fixed;
   map<string, float>::iterator it;
   float totalcompra;
-
-  for (it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++)
+  if (carrinhoCompras.empty())
   {
-    totalcompra += it->second;
+    cout << "Seu carrinho está vazio." << endl;
   }
-  cout << "Total: R$" << totalcompra << endl;
+  else{
+    for (it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++)
+    {
+       totalcompra += it->second;
+       
+    }
+    cout << "Total: R$" << totalcompra << endl;
+  }
+  
 }
+
+
 void excluirPedido()
 {
   cin.ignore();
   string pedido;
-  cout << "Qual pedido deseja remover?: ";
-  getline(cin, pedido);
+
   if (!carrinhoCompras.empty())
   { // verifica se o map está vazio
+    retornarCarrinho();
+    cout << "Qual pedido deseja remover?: ";
+    getline(cin, pedido);
     carrinhoCompras.erase(pedido);
     atualizarCardapioSuco();  // Chama a função para atualizar o arquivo
     cout << "Pedido  excluido" << endl;
@@ -226,7 +242,7 @@ void cliente()
       break;
     case 3: 
       int escolhaProduto;
-      cout << "O que deseja comprar:\n1 - sanduiche   2 - suco\n: ";
+      cout << "O que deseja comprar:\n1 - sanduiche ou 2 - suco:  ";
       cin >> escolhaProduto;
       adiconarNoCarrinho(escolhaProduto);
 
