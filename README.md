@@ -27,7 +27,8 @@ O programa possui dois perfis cliente e gerente
 
 ## Pré-requisitos
 g++   > = 11.4 <br>
-cmake > = 3.27
+cmake > = 3.27 <br>
+c++ >= 11.4
 
 ## Como rodar a aplicação
 ``` cmake build .``` <br>
