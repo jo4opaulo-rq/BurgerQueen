@@ -94,21 +94,6 @@ void listarCardapioSucoCliente()
   }
 }
 
-// void listarProdutos(){
-//     lerArquivoSanduicheCliente();
-//     cout << "--------------------|---------------------" << endl;
-//     cout << "\tProduto              Preço" << endl;
-//     cout << "--------------------|---------------------" << endl;
-//     map<string, float>::iterator it;
-//      for (it = cardapioSanduicheCliente.begin(); it != cardapioSanduicheCliente.end(); ++it) {
-//         cout << "   \t"<< it->first << "           R$" << it->second << '\n';
-//     }
-//     for (it = cardapioSucoCliente.begin(); it != cardapioSucoCliente.end(); ++it) {
-//     cout << "   \t"<< it->first << "                R$" << it->second << '\n';
-//     }
-//     cout << "--------------------|---------------------" << endl;
-// }
-
 void adiconarNoCarrinho(int sanduicheOusuco)
 {
   cin.ignore();
@@ -132,20 +117,13 @@ void adiconarNoCarrinho(int sanduicheOusuco)
     carrinhoCompras.insert(*cardapioSucoCliente.find(produto));
   }
 
-  fstream arquivo;
-  arquivo.open("cardapio/carrinho.txt", ios::out);
-  for (it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++)
-  {
-    arquivo << it->first << endl;
-    arquivo << it->second << endl;
-  }
 }
+
 void retornarCarrinho()
 { 
   cout.precision(2);
   cout << fixed;
   map<string, float>::iterator it;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                // 🛒
   cout << "|----------------------------------------------|" << endl;
   cout << "|               \U0001f6d2   SEUS PEDIDOS              |" << endl;
   cout << "|----------------------------------------------|" << endl;
@@ -211,6 +189,7 @@ void excluirPedido()
 
 void cliente()
 {
+
   int escolha = 1;
   lerArquivoSanduicheCliente();
   lerArquivoSucoCliente();
@@ -235,9 +214,11 @@ void cliente()
       cout << "Volte sempre\n";
       break;
     case 1: 
+      system("clear");
       listarCardapioSanduicheCliente();
       break;
     case 2: 
+      system("clear");
       listarCardapioSucoCliente();
       break;
     case 3: 

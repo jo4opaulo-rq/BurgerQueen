@@ -29,7 +29,11 @@ int main()
         {
         case 0:
             break;
-        case 1:
+        case 1: 
+            cout << endl;
+            cout << "\t \U0001f96a Boas vindas ao BurgerQueen \U0001f964"<< endl;
+            cout << endl;
+
             cliente();
             break;
         case 2:
