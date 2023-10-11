@@ -34,7 +34,7 @@ cmake > = 3.27
 
 ``` make``` <br>
 
-``` ./main.``` <br>
+``` ./main``` <br>
 
 
  
