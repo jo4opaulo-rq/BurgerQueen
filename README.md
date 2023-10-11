@@ -1,1 +1,1 @@
-# BurgerQueen
+## BurgerQueen  <img src=".logo/rainha.png" width="30" height="60" />
