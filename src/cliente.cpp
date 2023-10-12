@@ -4,14 +4,11 @@
 #include <string>
 #include <fstream>
 #include "cliente.hpp"
-#include "gerente.hpp"
 using namespace std;
 
 map<string, float> cardapioSanduicheCliente;
 map<string, float> cardapioSucoCliente;
 map<string, float> carrinhoCompras;
-
-void retornarCompras();
 
 void retornarValorCarrinho();
 
@@ -181,7 +178,6 @@ void excluirPedido()
     cout << "Qual pedido deseja remover?: ";
     getline(cin, pedido);
     carrinhoCompras.erase(pedido);
-    atualizarCardapioSuco();  // Chama a função para atualizar o arquivo
     cout << "Pedido  excluido" << endl;
   }
   else
