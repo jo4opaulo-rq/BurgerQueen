@@ -124,6 +124,11 @@ void retornarCarrinho()
   cout.precision(2);
   cout << fixed;
   map<string, float>::iterator it;
+  float totalcompra = 0;
+  for (it = carrinhoCompras.begin(); it != carrinhoCompras.end(); it++){
+    totalcompra += it->second;
+       
+  }
   cout << "|----------------------------------------------|" << endl;
   cout << "|               \U0001f6d2   SEUS PEDIDOS              |" << endl;
   cout << "|----------------------------------------------|" << endl;
@@ -133,9 +138,7 @@ void retornarCarrinho()
   }
   if (!carrinhoCompras.empty())
   {
-    cout << "                                 ";
-    retornarValorCarrinho();
-    cout << endl;
+    cout << "                          Valor total R$" << totalcompra << endl;
   }
   if (carrinhoCompras.empty())
   {
