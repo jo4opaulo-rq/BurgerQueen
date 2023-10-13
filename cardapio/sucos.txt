@@ -1,6 +1,10 @@
-Goiaba
-4
-Morango
+acerola
 5
-Uva com leite
-5
+goiaba
+6
+graviola
+7.59
+maracujá
+6
+uva
+8.5

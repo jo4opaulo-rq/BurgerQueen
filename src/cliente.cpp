@@ -86,7 +86,7 @@ void listarCardapioSucoCliente()
 
   if (cardapioSucoCliente.empty())
   {
-    cout << "|\t   Não foram nenhum sanduíche.         |" << endl;
+    cout << "|\t   Não foram nenhum suco                    |" << endl;
     cout << "|----------------------------------------------|" << endl;
   }
 }
@@ -222,7 +222,8 @@ void cliente()
       break;
     case 3: 
       int escolhaProduto;
-      cout << "O que deseja comprar:\n1 - sanduiche ou 2 - suco:  ";
+      cout << "O que deseja comprar:\n1 - sanduiche \n2 - suco  " << endl;
+      cout << "Escolha entre 1 ou 2: ";
       cin >> escolhaProduto;
       adiconarNoCarrinho(escolhaProduto);
 
