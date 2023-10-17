@@ -34,7 +34,7 @@ int main()
             cout << "\t \U0001f96a Boas vindas ao BurgerQueen \U0001f964"<< endl;
             cout << endl;
 
-            cliente();
+            cliente(); // chama a função principal do arquivo cliente.cpp
             break;
         case 2:
             cin.ignore();
@@ -44,7 +44,7 @@ int main()
             getline(cin, senha);
             if (usuario == "admin" && senha == "admin")
             {
-                gerente();
+                gerente(); // chama a função principal do arquivo gerente.cpp
             }
             else
             {

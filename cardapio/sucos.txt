@@ -1,7 +1,7 @@
 acerola
 5
 goiaba
-6
+5.99
 graviola
 7.59
 maracujá

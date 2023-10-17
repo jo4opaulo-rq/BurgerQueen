@@ -105,6 +105,7 @@ void adiconarNoCarrinho(int sanduicheOusuco)
     cout << "Escolha seu sanduíche:  ";
     getline(cin, produto);
     carrinhoCompras.insert(*cardapioSanduicheCliente.find(produto));
+    cout << "Pedido adicionado\n";
   }
   if (sanduicheOusuco == 2)
   {
@@ -112,6 +113,8 @@ void adiconarNoCarrinho(int sanduicheOusuco)
     cout << "Escolha seu suco:  ";
     getline(cin, produto);
     carrinhoCompras.insert(*cardapioSucoCliente.find(produto));
+    cout << "Pedido adicionado\n";
+
   }
 
 }
@@ -172,8 +175,8 @@ void excluirPedido()
   cin.ignore();
   string pedido;
 
-  if (!carrinhoCompras.empty())
-  { // verifica se o map está vazio
+  if (!carrinhoCompras.empty()) // verifica se o map está vazio
+  { 
     retornarCarrinho();
     cout << "Qual pedido deseja remover?: ";
     getline(cin, pedido);
@@ -186,7 +189,7 @@ void excluirPedido()
   }
 }
 
-void cliente()
+void cliente() // função principal
 {
 
   int escolha = 1;

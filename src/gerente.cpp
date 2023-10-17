@@ -76,7 +76,7 @@ void salvarCardapioSuco()
   }
 }
 
-void lerArquivoSanduiche()
+void lerArquivoSanduiche() // ler o arquivo sanduiches.txt
 {
   vector<string> linha;
   fstream arquivo;
@@ -100,7 +100,7 @@ void lerArquivoSanduiche()
   }
 }
 
-void lerArquivoSucos()
+void lerArquivoSucos() // ler o arquivo suco.txt
 {
   vector<string> linha;
   fstream arquivo;
@@ -137,34 +137,15 @@ void alterarPrecoSanduiche(string produto, float preco)
     }
     else
     {
-        //cout << "\t Esse sanduiche não está no cardápio\n";
       cout << "";
     }
   }
 }
 
-void alterarPrecoSuco(string produto, float preco)  // não está funcionando corretamente
-                                                    // falta verificar se o suco existe
+void alterarPrecoSuco(string produto, float preco)
 {
   cardapioSuco[produto] = preco;
-  //map<string, float>::iterator it;
-  // for (it = cardapioSuco.begin(); it != cardapioSuco.end(); ++it)
-  // {
-  //   if (it->first != produto)
-  //   {
-  //     cout << "t";
-
-  //   }
-  //       // if (cardapioSuco[it->first] != produto)
-  //       // {
-  //       //   cout << "\t Esse suco não está no cardápio\n";
-  //       // }
-  //   else{
-  //     cardapioSuco[produto] = preco;
-  //   }
-    
-  // }
-  
+  cout << "Valor atualizado" << endl;
 }
 
 void atualizarCardapioSuco()
@@ -185,7 +166,7 @@ void atualizarCardapioSanduiche()
 {
   map<string, float>::iterator it;
   fstream arquivo;
-  arquivo.open("cardapio/sanduiches.txt", ios::out);  // Apaga o arquivo original
+  arquivo.open("cardapio/sanduiches.txt", ios::out); // Apaga o arquivo original
 
   // Reescreve todo o arquivo do zero com os dados do map
   for (it = cardapioSanduiche.begin(); it != cardapioSanduiche.end(); it++)
@@ -222,7 +203,7 @@ void excluirDoCardapioSuco(string produto)
   }
 }
 
-void gerente()
+void gerente() // função principal
 {
   int escolha;
   string sanduiche, suco;
@@ -249,7 +230,6 @@ void gerente()
 
     if (escolha == 1)
     {
-      // lerArquivoSanduiche();
       listarCardapioSanduiche();
     }
 
@@ -288,7 +268,6 @@ void gerente()
       cin.ignore();
       float novoPrecoSanduiche;
       cout << "Qual sanduíche deseja alterar o preço: ";
-        //cin >> sanduiche;
       getline(cin, sanduiche);
       cout << "Novo valor: ";
       cin >> novoPrecoSanduiche;
@@ -301,12 +280,12 @@ void gerente()
       cin.ignore();
       float novoPreco;
       cout << "Qual suco deseja alterar o preço: ";
-        //cin >> suco;
       getline(cin, suco);
 
       cout << "Novo valor: ";
       cin >> novoPreco;
       alterarPrecoSuco(suco, novoPreco);
+      atualizarCardapioSuco();
     }
 
     if (escolha == 7)
